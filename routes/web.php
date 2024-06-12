@@ -20,3 +20,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/2fa', 'Auth\TwoFactorController@show')->name('2fa');
+Route::post('/2fa', 'Auth\TwoFactorController@verify')->name('2fa.verify');

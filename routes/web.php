@@ -21,5 +21,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/2fa', 'Auth\TwoFactorController@show')->name('2fa');
-Route::post('/2fa', 'Auth\TwoFactorController@verify')->name('2fa.verify');
+Route::get('/2fa', [App\Http\Controllers\Auth\TwoFactorController::class, 'show'])->name('2fa');
+Route::post('/2fa', [App\Http\Controllers\Auth\TwoFactorController::class, 'verify'])->name('2fa.verify');

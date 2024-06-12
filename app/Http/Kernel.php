@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use PragmaRX\Google2FALaravel\Google2FA;
 
 class Kernel extends HttpKernel
 {
@@ -22,6 +23,11 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     ];
+
+    protected $routeMiddleware = [
+        '2fa' => Google2FA::class,
+    ];
+    
 
     /**
      * The application's route middleware groups.
